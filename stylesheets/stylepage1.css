@@ -1,0 +1,89 @@
+:root {
+    --main-wood: #a67c52;
+    --dark: #2d2d2d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        .hero {
+            height: 60vh;
+            
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 { 
+            font-size: 50px; 
+            margin-bottom: 20px;
+            
+            transition: letter-spacing 0.5s; 
+        }
+
+        .hero h1:hover { letter-spacing: 5px; }
+
+        .main-content {
+            display: flex;
+            padding: 50px 5%;
+            gap: 40px;
+        }
+
+        aside {
+            flex: 1; 
+            background: #f4f1ee;
+            padding: 30px;
+            border-left: 5px solid var(--main-wood);
+            height: fit-content;
+        }
+
+        article {
+            flex: 2; 
+        }
+
+        .value-bar {
+            background: #eee;
+            border-radius: 20px;
+            margin: 15px 0;
+            height: 10px;
+            position: relative;
+        }
+
+        .fill {
+            background: var(--main-wood);
+            height: 100%;
+            border-radius: 20px;
+            
+            transition: width 2s; 
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--main-wood);
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column; 
+            }
+            .hero h1 { font-size: 30px; }
+        }

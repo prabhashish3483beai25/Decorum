@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DECORUM</title>
+    <!-- Global styles shared across all pages -->
+    <link rel="stylesheet" href="stylesheets/global.css">
+    <!-- Login / Register form styles -->
+    <link rel="stylesheet" href="stylesheets/register.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">DECORUM</div>
+        <ul class="nav-links">
+            <li><a href="page1.html">Home</a></li>
+            <li><a href="page2.html">Furniture</a></li>
+            <li><a href="page3.html">Contact</a></li>
+            <li><a href="register.html">Register/Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="form-header">
+            <h1>Create Account</h1>
+            <p>Join DECORUM for exclusive furniture deals</p>
+        </div>
+
+        <!-- Register form — submit handled by auth.js → registerForm listener
+             Input IDs (regName, regEmail, regPassword, regConfirm) are read
+             by auth.js to save credentials to localStorage -->
+        <form id="registerForm">
+            <input type="text"     id="regName"     placeholder="Full Name"        required>
+            <input type="email"    id="regEmail"    placeholder="Email Address"    required>
+            <input type="password" id="regPassword" placeholder="Password"         required>
+            <input type="password" id="regConfirm"  placeholder="Confirm Password" required>
+            <button type="submit">Register Now</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+<!-- Authentication logic shared by login.html and register.html -->
+<script src="js/auth.js"></script>
+
+</body>
+</html>

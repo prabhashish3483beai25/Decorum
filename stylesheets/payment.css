@@ -1,0 +1,201 @@
+/* ============================================================
+   payment.css — Styles for payment.html
+   Covers:
+     1. Pincode delivery checker section (API 1)
+     2. Payment form card layout
+     3. Responsive breakpoints
+   ============================================================ */
+
+
+/* ── 1. PINCODE DELIVERY CHECKER ─────────────────────────── */
+
+/* Outer wrapper for the pincode section */
+.pincode-section {
+    max-width: 520px;
+    margin: 30px auto 0;
+    padding: 22px 30px;
+    background: #fff8f3;
+    border: 1px solid #e8d5c4;
+    border-radius: 10px;
+}
+
+/* Section heading */
+.pincode-section h3 {
+    font-size: 15px;
+    color: #a67c52;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Row containing the pincode input + check button */
+.pincode-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Pincode text input */
+.pincode-row input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.pincode-row input:focus {
+    outline: none;
+    border-color: #a67c52;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+}
+
+/* "Check" button */
+.pincode-row button {
+    padding: 10px 20px;
+    background: #a67c52;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+}
+
+.pincode-row button:hover    { background: #8a6243; }
+.pincode-row button:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Result message shown after checking pincode */
+#deliveryResult {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+/* Colour states for the delivery result message */
+.delivery-ok      { color: #2e7d32; } /* green  — delivery available   */
+.delivery-err     { color: #c62828; } /* red    — not available / error */
+.delivery-loading { color: #888;    } /* grey   — checking in progress  */
+
+
+/* ── 2. PAYMENT FORM ─────────────────────────────────────── */
+
+/* Main card wrapper */
+.payment-container {
+    max-width: 520px;
+    margin: 20px auto 60px;
+    padding: 36px 40px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Form title */
+.payment-container h2 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+/* Small subtitle below the title */
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+/* Vertical stack of input groups */
+.payment-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Label + input wrapper */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Uppercase micro-label above each input */
+.input-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* All text inputs inside the payment form */
+.payment-container input {
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.payment-container input:focus {
+    outline: none;
+    border-color: #a67c52;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+}
+
+/* Side-by-side layout for Expiry and CVV */
+.card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* "Pay Now" submit button */
+.payment-container button[type="submit"] {
+    padding: 14px;
+    background: #a67c52;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+}
+
+.payment-container button[type="submit"]:hover {
+    background: #8a6243;
+    transform: translateY(-1px);
+}
+
+/* Small SSL note below the button */
+.secure-note {
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 6px;
+}
+
+
+/* ── 3. RESPONSIVE ───────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .payment-container,
+    .pincode-section {
+        margin: 20px;
+        padding: 24px 18px;
+    }
+
+    /* Stack Expiry and CVV on small screens */
+    .card-row { grid-template-columns: 1fr; }
+}

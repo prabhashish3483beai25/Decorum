@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - DECORUM</title>
+    <!-- Global styles shared across all pages -->
+    <link rel="stylesheet" href="stylesheets/global.css">
+    <!-- Payment page specific styles: pincode checker + card form -->
+    <link rel="stylesheet" href="stylesheets/payment.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DECORUM</div>
+        <ul class="nav-links">
+            <li><a href="page1.html">Home</a></li>
+            <li><a href="page2.html">Furniture</a></li>
+            <li><a href="cart.html">← Back to Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── API 1: India Post Pincode Delivery Checker ────────────
+         Uses api.postalpincode.in — free, no API key required.
+         Logic lives in js/payment.js → checkDelivery()
+    ─────────────────────────────────────────────────────────── -->
+    <div class="pincode-section">
+        <h3>📦 Check Delivery to Your Pincode</h3>
+        <div class="pincode-row">
+            <input type="text" id="pincodeInput"
+                   placeholder="Enter 6-digit pincode (e.g. 133001)"
+                   maxlength="6">
+            <button id="checkBtn" onclick="checkDelivery()">Check</button>
+        </div>
+        <!-- Result message injected here by payment.js -->
+        <p id="deliveryResult"></p>
+    </div>
+
+    <!-- ── Payment Form ───────────────────────────────────────────
+         onsubmit calls pay(event) in js/payment.js.
+         Card number and expiry are auto-formatted by payment.js.
+    ─────────────────────────────────────────────────────────── -->
+    <div class="payment-container">
+        <h2>💳 Secure Payment</h2>
+        <p class="subtitle">Your transaction is protected with 256-bit SSL</p>
+
+        <form id="paymentForm" onsubmit="pay(event)">
+            <div class="input-group">
+                <label>Card Number</label>
+                <!-- Auto-formatted as "1234  5678  9012  3456" by payment.js -->
+                <input type="text" id="cardNumber"
+                       placeholder="1234  5678  9012  3456"
+                       maxlength="22" required>
+            </div>
+            <div class="input-group">
+                <label>Card Holder Name</label>
+                <input type="text" placeholder="Full name on card" required>
+            </div>
+            <div class="card-row">
+                <div class="input-group">
+                    <label>Expiry Date</label>
+                    <!-- Auto-formatted as "MM / YY" by payment.js -->
+                    <input type="text" id="expiry"
+                           placeholder="MM / YY" maxlength="7" required>
+                </div>
+                <div class="input-group">
+                    <label>CVV</label>
+                    <input type="password" placeholder="•••" maxlength="3" required>
+                </div>
+            </div>
+            <button type="submit">Pay Now 🔒</button>
+            <p class="secure-note">🔐 Secured &nbsp;|&nbsp; No card data is stored</p>
+        </form>
+    </div>
+
+<!-- Payment logic: pincode API checker, card input formatter, pay handler -->
+<script src="js/payment.js"></script>
+</body>
+</html>
