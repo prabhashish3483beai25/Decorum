@@ -26,7 +26,7 @@
    ============================================================ */
 
 /* 🔑 Replace 'YOUR_PUBLIC_KEY' with the key from your EmailJS dashboard */
-emailjs.init('YOUR_PUBLIC_KEY');
+emailjs.init('wXSS4J69TK205orni');
 
 /**
  * sendEmail(e)
@@ -61,7 +61,7 @@ function sendEmail(e) {
      * emailjs.send(serviceID, templateID, params)
      * Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your own values.
      */
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+    emailjs.send('service_b49cl16', 'template_w2hs93t', params)
         .then(() => {
             /* Email sent successfully */
             status.className = 'form-status status-ok';
