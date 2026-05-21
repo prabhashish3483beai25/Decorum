@@ -90,14 +90,14 @@ function removeItem(index) {
 /**
  * checkout()
  * Validates that the cart is not empty, then navigates
- * to the payment page.
+ * to the shipping address page.
  */
 function checkout() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
     }
-    window.location.href = 'payment.html';
+    window.location.href = 'address.html';
 }
 
 /**

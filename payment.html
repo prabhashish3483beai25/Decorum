@@ -20,22 +20,6 @@
         </ul>
     </nav>
 
-    <!-- ── API 1: India Post Pincode Delivery Checker ────────────
-         Uses api.postalpincode.in — free, no API key required.
-         Logic lives in js/payment.js → checkDelivery()
-    ─────────────────────────────────────────────────────────── -->
-    <div class="pincode-section">
-        <h3>📦 Check Delivery to Your Pincode</h3>
-        <div class="pincode-row">
-            <input type="text" id="pincodeInput"
-                   placeholder="Enter 6-digit pincode (e.g. 133001)"
-                   maxlength="6">
-            <button id="checkBtn" onclick="checkDelivery()">Check</button>
-        </div>
-        <!-- Result message injected here by payment.js -->
-        <p id="deliveryResult"></p>
-    </div>
-
     <!-- ── Payment Form ───────────────────────────────────────────
          onsubmit calls pay(event) in js/payment.js.
          Card number and expiry are auto-formatted by payment.js.
